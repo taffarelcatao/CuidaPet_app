@@ -1,4 +1,5 @@
 import 'package:cuidapet_mobile/app/modules/auth/home/auth_home_page.dart';
+import 'package:cuidapet_mobile/app/modules/auth/login/login_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AuthModule extends Module {
@@ -7,6 +8,8 @@ class AuthModule extends Module {
 
   @override
   void routes(r) {
-    r.child(Modular.initialRoute, child: (_) => const AuthHomePage());
+    r.child(Modular.initialRoute,
+        child: (_) => AuthHomePage(authStore: Modular.get()));
+    ModuleRoute('/login', module: LoginModule());
   }
 }
